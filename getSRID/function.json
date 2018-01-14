@@ -2,7 +2,7 @@
   "bindings": [
     {
       "authLevel": "anonymous",
-      "name": "request",
+      "name": "req",
       "type": "httpTrigger",
       "direction": "in",
       "methods": [
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "name": "$return",
+      "name": "res",
       "type": "http",
       "direction": "out"
     }
