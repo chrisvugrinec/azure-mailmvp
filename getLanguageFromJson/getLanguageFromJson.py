@@ -8,8 +8,8 @@ with open(os.environ["REQ"]) as req:
 response = open(os.environ['res'], 'w')  
 
 try:
-    result = (jsonResult['Results']['output1'][0]['language'] )
-    score  = (jsonResult['Results']['output1'][0]['score'] )    
+    result = (jsonResult['Results']['output1']['value']['Values'][0][0] )
+    score  = (jsonResult['Results']['output1']['value']['Values'][0][1] )    
     if score < 75:
         result = "UNKNOWN"
 except:
@@ -18,3 +18,4 @@ finally:
     response.write(result)  
 
 response.close() 
+
