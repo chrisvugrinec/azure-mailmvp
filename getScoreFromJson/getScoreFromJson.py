@@ -8,10 +8,15 @@ with open(os.environ["REQ"]) as req:
 response = open(os.environ['res'], 'w')  
 
 try:
-    result  = (jsonResult['Results']['output1'][0]['Probability'] )    
+    result  = (jsonResult['Results']['output1']['value']['Values'][0][0] )    
+    score   = (jsonResult['Results']['output1']['value']['Values'][0][1] )       
+    print(score)
+    if float(score) < 0.1:
+        result = "UNKNOWN"
 except:
-    result = 0
+    result = "UNKNOWN"
 finally:
     response.write(result)  
 
 response.close() 
+
